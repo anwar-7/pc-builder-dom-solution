@@ -14,7 +14,7 @@
 //   total.innerText = totalPrice;
 //function call// updatePrice('memory-cost', 300);
 // });
-
+/* 
 document.getElementById('sixteenGB').addEventListener('click', function () {
   updatePrice('memory-cost', 300);
 });
@@ -36,8 +36,8 @@ document.getElementById('paid-delivery').addEventListener('click', function () {
 document.getElementById('free-delivery').addEventListener('click', function () {
   updatePrice('delivery-cost', 0);
 });
-
-function updatePrice(itemId, price) {
+ */
+/* function updatePrice(itemId, price) {
   const memoryCost = document.getElementById(itemId);
   memoryCost.innerText = price;
 
@@ -54,4 +54,32 @@ function updatePrice(itemId, price) {
 
   const total = document.getElementById('total-price');
   total.innerText = totalPrice;
+} */
+
+function updatePrice(itemId, price, clickId) {
+  document.getElementById(clickId).addEventListener('click', function () {
+    const memoryCost = document.getElementById(itemId);
+    memoryCost.innerText = price;
+
+    const bastPrice = document.getElementById('best-price').innerText;
+    const memoryPrice = document.getElementById('memory-cost').innerText;
+    const storagePrice = document.getElementById('storage-cost').innerText;
+    const deliveryPrice = document.getElementById('delivery-cost').innerText;
+
+    const totalPrice =
+      parseFloat(bastPrice) +
+      parseFloat(memoryPrice) +
+      parseFloat(storagePrice) +
+      parseFloat(deliveryPrice);
+
+    const total = document.getElementById('total-price');
+    total.innerText = totalPrice;
+  });
 }
+updatePrice('memory-cost', 300, 'sixteenGB');
+updatePrice('memory-cost', 0, 'eightGB');
+updatePrice('storage-cost', 800, 'ssd3');
+updatePrice('storage-cost', 500, 'ssd2');
+updatePrice('storage-cost', 0, 'ssd1');
+updatePrice('delivery-cost', 20, 'paid-delivery');
+updatePrice('delivery-cost', 0, 'free-delivery');
