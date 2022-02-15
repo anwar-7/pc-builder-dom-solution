@@ -30,6 +30,12 @@ document.getElementById('ssd2').addEventListener('click', function () {
 document.getElementById('ssd1').addEventListener('click', function () {
   updatePrice('storage-cost', 0);
 });
+document.getElementById('paid-delivery').addEventListener('click', function () {
+  updatePrice('delivery-cost', 20);
+});
+document.getElementById('free-delivery').addEventListener('click', function () {
+  updatePrice('delivery-cost', 0);
+});
 
 function updatePrice(itemId, price) {
   const memoryCost = document.getElementById(itemId);
