@@ -64,8 +64,8 @@ function updatePrice(itemId, price) {
 
 function updatePrice(clickId, itemId, price) {
   document.getElementById(clickId).addEventListener('click', function () {
-    const memoryCost = document.getElementById(itemId);
-    memoryCost.innerText = price;
+    const cost = document.getElementById(itemId);
+    cost.innerText = price;
 
     const bastPrice = document.getElementById('best-price').innerText;
     const memoryPrice = document.getElementById('memory-cost').innerText;
@@ -90,6 +90,7 @@ updatePrice('ssd1', 'storage-cost', 0);
 updatePrice('paid-delivery', 'delivery-cost', 20);
 updatePrice('free-delivery', 'delivery-cost', 0);
 
+// promo code and error messages
 const fakeCode = 'pHero';
 
 document.getElementById('apply-btn').addEventListener('click', function () {
@@ -107,6 +108,8 @@ document.getElementById('apply-btn').addEventListener('click', function () {
     sussesMassage.classList.remove('d-none');
     sussesMassage.classList.add('d-block');
     errorMessage.classList.add('d-none');
+  } else if (codeValue == '') {
+    // console.log('emty');
   } else {
     // massage handling for  error massage
     sussesMassage.classList.add('d-none');
@@ -117,8 +120,3 @@ document.getElementById('apply-btn').addEventListener('click', function () {
   // clear the field
   code.value = '';
 });
-
-// document.getElementById('apply-btn').addEventListener('click', function () {
-//   const sussesMassage = document.getElementById('applied-text');
-//   console.log(sussesMassage.innerText);
-// });
